@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: jumde.github.io
+Token: ee05133bb950f74db4e5b8dd860af2962342a810be7eed2729d9105d853363b5
