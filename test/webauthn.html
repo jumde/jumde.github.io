@@ -3,13 +3,13 @@
   .create({
     publicKey: {
       // random, cryptographically secure, at least 16 bytes
-      challenge: base64url.decode("<%= challenge %>"),
+      challenge: "HelloWorld",
       // relying party
       rp: {
         name: "Awesome Corp" // sample relying party
       },
       user: {
-        id: base64url.decode("<%= id %>"),
+        id: "id",
         name: "<%= name %>",
         displayName: "<%= displayName %>"
       },
