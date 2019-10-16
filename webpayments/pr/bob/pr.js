@@ -19,20 +19,20 @@ function buildPaymentRequest() {
     total: {
       label: 'Donation',
       amount: {
-        currency: 'USD',
+        currency: 'BAT',
         value: '55.00',
       },
     },
     displayItems: [{
       label: 'Original donation amount',
       amount: {
-        currency: 'USD',
+        currency: 'BAT',
         value: '65.00',
       },
     }, {
       label: 'Friends and family discount',
       amount: {
-        currency: 'USD',
+        currency: 'BAT',
         value: '-10.00',
       },
     }],
