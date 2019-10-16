@@ -8,7 +8,7 @@ function buildPaymentRequest() {
   }
 
   const supportedInstruments = [{
-    supportedMethods: 'https://jumde.github.io/webpayments/pay'
+    supportedMethods: 'https://batpay.herokuapp.com/pay/'
   },
   {
     supportedMethods: 'interledger'
