@@ -8,7 +8,7 @@ function buildPaymentRequest() {
   }
 
   const supportedInstruments = [{
-    supportedMethods: 'https://bobpay.xyz/pay'
+    supportedMethods: 'https://jumde.github.io/webpayments/pay'
   },
   {
     supportedMethods: 'interledger'
