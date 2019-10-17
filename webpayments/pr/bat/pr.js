@@ -10,7 +10,7 @@ function buildPaymentRequest() {
   const supportedInstruments = [
   {
     supportedMethods: 'basic-card'
-  }
+  },
   {
     supportedMethods: 'https://batpay.herokuapp.com/pay/'
   },
