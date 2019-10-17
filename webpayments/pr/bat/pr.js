@@ -7,12 +7,13 @@ function buildPaymentRequest() {
     return null;
   }
 
-  const supportedInstruments = [{
-    supportedMethods: 'https://batpay.herokuapp.com/pay/'
-  },
+  const supportedInstruments = [
   {
     supportedMethods: 'basic-card'
   }
+  {
+    supportedMethods: 'https://batpay.herokuapp.com/pay/'
+  },
   ];
 
   const details = {
