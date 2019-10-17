@@ -12,6 +12,8 @@ function buildPaymentRequest() {
     supportingData: {
         merchant_addr: '0x123456',
         user_addr: '0x98765'
+    }, {
+    supportedMethods: 'interledger',
     }
   }];
 
