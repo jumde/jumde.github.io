@@ -9,12 +9,11 @@ function buildPaymentRequest() {
 
   const supportedInstruments = [{
     supportedMethods: 'https://batpay.herokuapp.com/pay/',
-    data: {
+    supportingData: {
         merchant_addr: '0x123456',
         user_addr: '0x98765'
     }
-  }
-  ];
+  }];
 
   const details = {
     total: {
