@@ -9,9 +9,10 @@ function buildPaymentRequest() {
 
   const supportedInstruments = [{
     supportedMethods: 'https://batpay.herokuapp.com/pay/'
-  },
-  {
-    supportedMethods: 'interledger'
+    data: {
+        merchant_addr: '0x123456',
+        user_addr: '0x98765'
+    }
   }
   ];
 
