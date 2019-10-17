@@ -13,9 +13,7 @@ function buildPaymentRequest() {
   },  
   {
     supportedMethods: 'interledger'
-  },
-
-  ];
+  }];
 
   const details = {
     total: {
