@@ -11,7 +11,7 @@ function buildPaymentRequest() {
     supportedMethods: 'https://batpay.herokuapp.com/pay/'
   },
   {
-    supportedMethods: 'interledger'
+    supportedMethods: 'basic-card'
   }
   ];
 
