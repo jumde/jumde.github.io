@@ -42,7 +42,7 @@ class Store {
   // Retrieve the configuration from the API.
   async getConfig() {
     try {
-      const response = await fetch('/config');
+      const response = await fetch('https://stripe-payments-demo.appspot.com/config');
       const config = await response.json();
       if (config.stripePublishableKey.includes('live')) {
         // Hide the demo notice if the publishable key is in live mode.
@@ -57,7 +57,7 @@ class Store {
   // Retrieve a SKU for the Product where the API Version is newer and doesn't include them on v1/product
   async loadSkus(product_id) {
     try {
-      const response = await fetch(`/products/${product_id}/skus`);
+      const response = await fetch(`https://stripe-payments-demo.appspot.com/products/${product_id}/skus`);
       const skus = await response.json();
       this.products[product_id].skus = skus;
     } catch (err) {
@@ -69,7 +69,7 @@ class Store {
   loadProducts() {
     if (!this.productsFetchPromise) {
       this.productsFetchPromise = new Promise(async resolve => {
-        const productsResponse = await fetch('/products');
+        const productsResponse = await fetch('https://stripe-payments-demo.appspot.com/products');
         const products = (await productsResponse.json()).data;
         if (!products.length) {
           throw new Error(
