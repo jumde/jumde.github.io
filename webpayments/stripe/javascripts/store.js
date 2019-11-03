@@ -42,8 +42,7 @@ class Store {
   // Retrieve the configuration from the API.
   async getConfig() {
     try {
-      const response = await fetch('https://stripe-payments-demo.appspot.com/config');
-      const config = await response.json();
+      const config = '{"stripePublishableKey":"pk_test_PInFiPUnGR6pzLYZ2IE6oyPf","stripeCountry":"FR","country":"US","currency":"eur","paymentMethods":["alipay","bancontact","card","eps","ideal","giropay","multibanco","sofort","wechat"],"shippingOptions":[{"id":"free","label":"Free Shipping","detail":"Delivery within 5 days","amount":0},{"id":"express","label":"Express Shipping","detail":"Next day delivery","amount":500}]}';
       if (config.stripePublishableKey.includes('live')) {
         // Hide the demo notice if the publishable key is in live mode.
         document.querySelector('#order-total .demo').style.display = 'none';
@@ -69,8 +68,7 @@ class Store {
   loadProducts() {
     if (!this.productsFetchPromise) {
       this.productsFetchPromise = new Promise(async resolve => {
-        const productsResponse = await fetch('https://stripe-payments-demo.appspot.com/products');
-        const products = (await productsResponse.json()).data;
+        const products = '[{"id":"pins","object":"product","active":true,"attributes":["set"],"caption":null,"created":1513848330,"deactivate_on":[],"description":null,"images":[],"livemode":false,"metadata":{},"name":"Stripe Pins","package_dimensions":null,"shippable":true,"skus":{"object":"list","data":[{"id":"pins-collector","object":"sku","active":true,"attributes":{"set":"Collector Set"},"created":1513848331,"currency":"eur","image":null,"inventory":{"quantity":500,"type":"finite","value":null},"livemode":false,"metadata":{},"package_dimensions":null,"price":799,"product":"pins","updated":1513848331}],"has_more":false,"total_count":1,"url":"/v1/skus?product=pins&active=true"},"type":"good","updated":1552591126,"url":null},{"id":"shirt","object":"product","active":true,"attributes":["size","gender"],"caption":null,"created":1513848329,"deactivate_on":[],"description":null,"images":[],"livemode":false,"metadata":{},"name":"Stripe Shirt","package_dimensions":null,"shippable":true,"skus":{"object":"list","data":[{"id":"shirt-small-woman","object":"sku","active":true,"attributes":{"size":"Small Standard","gender":"Woman"},"created":1513848329,"currency":"eur","image":null,"inventory":{"quantity":null,"type":"infinite","value":null},"livemode":false,"metadata":{},"package_dimensions":null,"price":999,"product":"shirt","updated":1513848329}],"has_more":false,"total_count":1,"url":"/v1/skus?product=shirt&active=true"},"type":"good","updated":1513848329,"url":null},{"id":"increment","object":"product","active":true,"attributes":["issue"],"caption":null,"created":1513848327,"deactivate_on":[],"description":null,"images":[],"livemode":false,"metadata":{},"name":"Increment Magazine","package_dimensions":null,"shippable":true,"skus":{"object":"list","data":[{"id":"increment-03","object":"sku","active":true,"attributes":{"issue":"Issue #3 “Development”"},"created":1513848328,"currency":"eur","image":null,"inventory":{"quantity":null,"type":"infinite","value":null},"livemode":false,"metadata":{},"package_dimensions":null,"price":399,"product":"increment","updated":1513848328}],"has_more":false,"total_count":1,"url":"/v1/skus?product=increment&active=true"},"type":"good","updated":1553885845,"url":null}]';
         if (!products.length) {
           throw new Error(
             'No products on Stripe account! Make sure the setup script has run properly.'
