@@ -4,12 +4,17 @@
  */
 
 function fetchUpholdToken() {
-  alert(document.getElementById("token").innerHTML)
+  return document.getElementById("token").innerHTML;
 }
 
 function buildPaymentRequest() {
   if (!window.PaymentRequest) {
     return null;
+  }
+
+  const upholdToken = fetchUpholdToken();
+  if (upholdToken == "") {
+    error('Rewards is not available');
   }
 
   const supportedInstruments = [{
@@ -21,6 +26,11 @@ function buildPaymentRequest() {
   ];
 
   const details = {
+    modifiers: {
+      data: {
+        upholdToken
+      }
+    }
     total: {
       label: 'Donation',
       amount: {
@@ -90,7 +100,6 @@ function handlePaymentResponse(response) {
  * Launches payment request for Bob Pay.
  */
 function onBuyClicked() { // eslint-disable-line no-unused-vars
-  fetchUpholdToken();
   if (!window.PaymentRequest || !request) {
     error('PaymentRequest API is not supported.');
     return;
