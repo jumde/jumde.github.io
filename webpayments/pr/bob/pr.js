@@ -4,7 +4,10 @@
  */
 
 function fetchUpholdToken() {
-  return document.getElementById("token").innerHTML;
+  if(document.getElementById("token")) {
+    return document.getElementById("token").innerHTML;
+  }
+  return ""
 }
 
 function buildPaymentRequest() {
@@ -78,7 +81,11 @@ function buildPaymentRequest() {
   return request;
 }
 
-let request = buildPaymentRequest();
+let request = null;
+
+window.addEventListener('load', function () {
+  request = buildPaymentRequest();
+})
 
 /**
  * Handles the response from PaymentRequest.show().
