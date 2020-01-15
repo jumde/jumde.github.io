@@ -28,9 +28,9 @@ function buildPaymentRequest() {
   const details = {
     modifiers: {
       data: {
-        upholdToken
+        'randomToken'
       }
-    }
+    },
     total: {
       label: 'Donation',
       amount: {
