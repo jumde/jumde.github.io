@@ -28,8 +28,8 @@ function buildPaymentRequest() {
   const details = {
     modifiers: {
       data: {
-        'randomToken'
-      }
+        token: 'randomToken',
+      },
     },
     total: {
       label: 'Donation',
