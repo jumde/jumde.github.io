@@ -2,6 +2,11 @@
  * Initializes the payment request object.
  * @return {PaymentRequest} The payment request object.
  */
+
+function fetchUpholdToken() {
+  alert(document.getElementById("token").innerHTML)
+}
+
 function buildPaymentRequest() {
   if (!window.PaymentRequest) {
     return null;
@@ -85,6 +90,7 @@ function handlePaymentResponse(response) {
  * Launches payment request for Bob Pay.
  */
 function onBuyClicked() { // eslint-disable-line no-unused-vars
+  fetchUpholdToken();
   if (!window.PaymentRequest || !request) {
     error('PaymentRequest API is not supported.');
     return;
