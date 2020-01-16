@@ -83,10 +83,6 @@ function buildPaymentRequest() {
 
 let request = null;
 
-window.addEventListener('load', function () {
-  request = buildPaymentRequest();
-})
-
 /**
  * Handles the response from PaymentRequest.show().
  */
@@ -107,10 +103,12 @@ function handlePaymentResponse(response) {
  * Launches payment request for Bob Pay.
  */
 function onBuyClicked() { // eslint-disable-line no-unused-vars
-  if (!window.PaymentRequest || !request) {
+  if (!window.PaymentRequest) {
     error('PaymentRequest API is not supported.');
     return;
   }
+
+  request = buildPaymentRequest();
 
   try {
     request.show()
