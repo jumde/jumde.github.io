@@ -5,7 +5,9 @@
 
 function fetchUpholdToken() {
   if(document.getElementById("token")) {
-    return document.getElementById("token").innerHTML;
+    var token = document.getElementById("token").innerHTML
+    console.log(token)
+    return token;
   }
   return ""
 }
@@ -18,6 +20,7 @@ function buildPaymentRequest() {
   const upholdToken = fetchUpholdToken();
   if (upholdToken == "") {
     error('Rewards is not available');
+    return null;
   }
 
   const supportedInstruments = [{
@@ -25,15 +28,10 @@ function buildPaymentRequest() {
   },
   {
     supportedMethods: 'interledger'
-  }
-  ];
+  }];
 
   const details = {
-    modifiers: {
-      data: {
-        token: 'randomToken',
-      },
-    },
+    id: upholdToken,
     total: {
       label: 'Donation',
       amount: {
@@ -55,6 +53,8 @@ function buildPaymentRequest() {
       },
     }],
   };
+
+  console.log(details)
 
   let request = null;
 
