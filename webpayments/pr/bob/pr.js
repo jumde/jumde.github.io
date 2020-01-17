@@ -122,3 +122,7 @@ function onBuyClicked() { // eslint-disable-line no-unused-vars
     request = buildPaymentRequest();
   }
 }
+
+window.addEventListener('message',function(event) {
+  console.log('received response:  ',event.data);
+},false);
