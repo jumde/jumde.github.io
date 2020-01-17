@@ -123,6 +123,13 @@ function onBuyClicked() { // eslint-disable-line no-unused-vars
   }
 }
 
-window.addEventListener('message',function(event) {
-  console.log('received response:  ',event.data);
-},false);
+// The ID of the extension we want to talk to.
+var myExtensionId = "jidkidbbcafjabdphckchenhfomhnfma";
+
+// Make a simple request:
+console.log("Sending ping from the page");
+chrome.runtime.sendMessage(myExtensionId, {ping: true},
+  function(response) {
+    if(response.pong) console.log("Pong received from content script");
+  }
+);
