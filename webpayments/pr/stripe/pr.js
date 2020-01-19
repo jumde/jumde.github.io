@@ -10,6 +10,7 @@ var paymentRequest = stripe.paymentRequest({
 });
 
 function onload() {
+  console.log("Loaded");
   var elements = stripe.elements();
   var prButton = elements.create('paymentRequestButton', {
     paymentRequest: paymentRequest,
@@ -18,8 +19,10 @@ function onload() {
   // Check the availability of the Payment Request API first.
   paymentRequest.canMakePayment().then(function(result) {
     if (result) {
+      console.log("Mounted");
       prButton.mount('#payment-request-button');
     } else {
+      console.log("Oops");
       document.getElementById('payment-request-button').style.display = 'none';
     }
   }); 
