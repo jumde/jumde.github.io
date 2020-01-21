@@ -5,7 +5,7 @@ var paymentRequest = stripe.paymentRequest({
   currency: 'usd',
   total: {
     label: 'Total',
-    amount: 55,
+    amount: 5500,
   },
 });
 
