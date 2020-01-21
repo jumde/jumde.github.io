@@ -29,10 +29,12 @@ function onload() {
 }
 
 paymentRequest.on('token', function(ev) {
+  console.log(ev.token.id)
   // Send the token to your server to charge it!
   fetch('https://batpay.herokuapp.com/charges', {
     method: 'POST',
     body: JSON.stringify({token: ev.token.id}),
+    headers: {'content-type': 'application/json'},
   })
   .then(function(response) {
     if (response.ok) {
