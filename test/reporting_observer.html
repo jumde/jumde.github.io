@@ -1,0 +1,9 @@
+<script>
+  try {
+    new ReportingObserver(function(reports, observer) {
+      document.write('Reporting Observers available');
+      }, {});
+    } catch (err) {
+      document.write('Reporting Observers not available');
+    }
+</script>
