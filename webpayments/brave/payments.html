@@ -24,4 +24,15 @@
   } else {
     document.write("Cannot");
   }
+ 
+function onBuyClicked() {
+  request.show().then(function(instrumentResponse) {
+    console.log('Payment Requested');
+  })
+  .catch(function(err) {
+    console.log('error');
+  });
+}
 </script>
+
+<button onclick="onBuyClicked()">Buy</button>
