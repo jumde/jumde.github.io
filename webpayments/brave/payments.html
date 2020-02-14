@@ -1,0 +1,8 @@
+<script>
+  let request = new PaymentRequest(supportedInstruments, details);
+  if (request.canMakePayment) {
+    document.write("Can Make Payment");
+  } else {
+    document.write("Cannot");
+  }
+</script>
