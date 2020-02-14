@@ -1,4 +1,23 @@
 <script>
+  let supportedInstruments = [{
+    supportedMethods: 'basic-card',
+    data: {supportedNetworks: networks, supportedTypes: types},
+  }];
+
+  let details = {
+    total: {label: 'Donation', amount: {currency: 'USD', value: '55.00'}},
+    displayItems: [
+      {
+        label: 'Original donation amount',
+        amount: {currency: 'USD', value: '65.00'},
+      },
+      {
+        label: 'Friends and family discount',
+        amount: {currency: 'USD', value: '-10.00'},
+      },
+    ],
+  };
+
   let request = new PaymentRequest(supportedInstruments, details);
   if (request.canMakePayment) {
     document.write("Can Make Payment");
