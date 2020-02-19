@@ -29,6 +29,7 @@
 function onBuyClicked() {
   request.show().then(function(instrumentResponse) {
     console.log('Payment Requested');
+    console.log(instrumentResponse);
   })
   .catch(function(err) {
     console.log('error');
