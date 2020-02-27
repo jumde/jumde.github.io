@@ -2,13 +2,11 @@
   let supportedInstruments = [{
     supportedMethods: 'basic-card',
     data: {supportedNetworks: ['amex', 'diners'], supportedTypes: ['debit', 'credit']},
-  }, {
-    supportedMethods: 'bat'
   }];
 
   let details = {
     id: 'random_token',
-    total: {label: 'Total', amount: {currency: 'BAT', value: '2.00'}},
+    total: {label: 'Total', amount: {currency: 'BAT', value: '55.00'}},
     displayItems: [
       {
         label: 'Brave T-Shirt',
@@ -16,16 +14,16 @@
       },
       {
         label: 'Brave discount',
-        amount: {currency: 'BAT', value: '-63.00'},
+        amount: {currency: 'BAT', value: '-10.00'},
       },
     ],
   };
 
   let request = new PaymentRequest(supportedInstruments, details);
   if (request.canMakePayment) {
-    document.write("Can Make Payment");
+    console.log("Can Make Payment");
   } else {
-    document.write("Cannot");
+    console.log("Cannot");
   }
  
 function onBuyClicked() {
@@ -39,4 +37,8 @@ function onBuyClicked() {
 }
 </script>
 
-<button onclick="onBuyClicked()">Buy</button>
+<center>
+<h2>Brave Store</h2>
+<img src="tshirt.jpg" width="150" height="150"></img><br><br>
+<button onclick="onBuyClicked()">Buy 55 BAT | 15 USD</button>
+</center>

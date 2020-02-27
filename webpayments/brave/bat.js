@@ -1,13 +1,11 @@
-<script>
+function buildPaymentRequest() {
   let supportedInstruments = [{
     supportedMethods: 'basic-card',
     data: {supportedNetworks: ['amex', 'diners'], supportedTypes: ['debit', 'credit']},
-  }, {
-    supportedMethods: 'bat'
   }];
 
   let details = {
-    id: 'random_token',
+    id: 'MDAxY2xvY2F0aW9uIHNob2dha3VrYW4uY29tCjAwMzhpZGVudGlmaWVyIHBrX3Rlc3RfYzQyODZiMzdkOGQzMDM3ZDJjYmE4OWI5MmY1N2E5OTIKMDAxNmNpZCBpZCA9IFNLVS0xMjM0CjAwMTVjaWQgYW1vdW50ID0gMS4wCjAwMTdjaWQgY3VycmVuY3kgPSBCQVQKMDAyZWNpZCBleHBpcmVzX2F0ID0gMjAxOS0xMi0yMFQyMTowNDo1MS4xMDFaCjAwMmZzaWduYXR1cmUg3M5je74-A1KRKcZaUE-6eMj3_FSDcNM1-IjZW0BHlsUK',
     total: {label: 'Total', amount: {currency: 'BAT', value: '2.00'}},
     displayItems: [
       {
@@ -22,21 +20,5 @@
   };
 
   let request = new PaymentRequest(supportedInstruments, details);
-  if (request.canMakePayment) {
-    document.write("Can Make Payment");
-  } else {
-    document.write("Cannot");
-  }
- 
-function onBuyClicked() {
-  request.show().then(function(instrumentResponse) {
-    console.log('Payment Requested');
-    console.log(instrumentResponse);
-  })
-  .catch(function(err) {
-    console.log('error');
-  });
+  return request;
 }
-</script>
-
-<button onclick="onBuyClicked()">Buy</button>
