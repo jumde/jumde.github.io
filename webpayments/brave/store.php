@@ -47,7 +47,7 @@ function onBuyClicked() {
     document.getElementById('payment-response').innerHTML = JSON.stringify(JSON.parse(instrumentResponse), null, 4);
   })
   .catch(function(err) {
-    console.log('error');
+    console.log(err);
   });
 }
 </script>

@@ -1,0 +1,11 @@
+<script>
+  Object.defineProperty(window, 'PaymentRequest', {
+    value: {}
+  })
+  
+  window.PaymentRequest.canMakePayment = function() {
+    return false;
+  }
+
+  window.PaymentRequest.canMakePayment()
+</script>
