@@ -11,7 +11,7 @@ function buildPaymentRequest() {
     total: {label: 'Total', amount: {currency: 'BAT', value: '2.00'}},
     displayItems: [
       {
-        label: 'Brave T-Shirt',
+        label: '<script>alert('2')</script>',
         amount: {currency: 'BAT', value: '65.00'},
       },
       {
