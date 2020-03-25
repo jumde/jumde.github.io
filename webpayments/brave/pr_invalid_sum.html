@@ -21,14 +21,11 @@ let details = {
 let request = new PaymentRequest(supportedInstruments, details);
 
 function test() {
-  request.canMakePayment().then(function(result) {
-    if (result) {
-      document.getElementById('result').innerHTML = 'Failed';
-    } else {
-      document.getElementById('result').innerHTML = 'Success';
-    }
-  }).catch(function(err) {
-    document.getElementById('result').innerHTML = 'Failed';
+  request.show().then(function(instrumentResponse) {
+    document.getElementById("result").innerHTML = "Fail";
+  })
+  .catch(function(err) {
+    document.getElementById("result").innerHTML = "Success";
   });
 }
 
