@@ -1,0 +1,38 @@
+<script>
+let supportedInstruments = [{
+    supportedMethods: 'bat',
+}];
+
+let details = {
+  total: {label: 'Donation', amount: {currency: 'BAT', value: '55.00'}},
+  displayItems: [
+  {
+    label: 'Original donation amount',
+    amount: {currency: 'BAT', value: '65.00'},
+  },
+  {
+    label: 'Friends and family discount',
+    amount: {currency: 'BAT', value: '-10.00'},
+  },
+  ],
+};
+
+let request = new PaymentRequest(supportedInstruments, details);
+
+request.show().then(function(instrumentResponse) {
+  request.canMakePayment().then(function(result) {
+      if (result) {
+        document.getElementById('result').innerHTML = 'Failed';
+      } else {
+        document.getElementById('result').innerHTML = 'Failed';
+      }
+    }).catch(function(err) {
+      document.getElementById('result').innerHTML = 'Success';
+    });
+})
+.catch(function(err) {
+  console.log(err);
+});
+</script>
+
+<div id="result"></div>
