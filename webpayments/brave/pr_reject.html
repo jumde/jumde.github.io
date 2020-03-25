@@ -20,19 +20,22 @@ let details = {
 let request = new PaymentRequest(supportedInstruments, details);
 
 request.show().then(function(instrumentResponse) {
-  request.canMakePayment().then(function(result) {
-      if (result) {
-        document.getElementById('result').innerHTML = 'Failed';
-      } else {
-        document.getElementById('result').innerHTML = 'Failed';
-      }
-    }).catch(function(err) {
-      document.getElementById('result').innerHTML = 'Success';
-    });
+  console.log(instrumentResponse);
 })
 .catch(function(err) {
   console.log(err);
 });
+
+request.canMakePayment().then(function(result) {
+  if (result) {
+    document.getElementById('result').innerHTML = 'Failed';
+  } else {
+    document.getElementById('result').innerHTML = 'Failed';
+  }
+}).catch(function(err) {
+  document.getElementById('result').innerHTML = 'Success';
+});
+
 </script>
 
 <div id="result"></div>
