@@ -1,3 +1,4 @@
+<head>
 <script>
 let supportedInstruments = [{
     supportedMethods: 'bat',
@@ -19,23 +20,27 @@ let details = {
 
 let request = new PaymentRequest(supportedInstruments, details);
 
-request.show().then(function(instrumentResponse) {
-  console.log(instrumentResponse);
-})
-.catch(function(err) {
-  console.log(err);
-});
+function test() {
+  request.show().then(function(instrumentResponse) {
+    console.log(instrumentResponse);
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
 
-request.canMakePayment().then(function(result) {
-  if (result) {
-    document.getElementById('result').innerHTML = 'Failed';
-  } else {
-    document.getElementById('result').innerHTML = 'Failed';
-  }
-}).catch(function(err) {
-  document.getElementById('result').innerHTML = 'Success';
-});
+  request.canMakePayment().then(function(result) {
+    if (result) {
+      document.getElementById('result').innerHTML = 'Failed';
+    } else {
+      document.getElementById('result').innerHTML = 'Failed';
+    }
+  }).catch(function(err) {
+    document.getElementById('result').innerHTML = 'Success';
+  });
+}
 
 </script>
-
+</head>
+<body onload="test()">
 <div id="result"></div>
+</body>
