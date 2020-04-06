@@ -1,9 +1,9 @@
 function buildPaymentRequest() {
   let supportedInstruments = [{
+    supportedMethods: 'bat',
+  },{
     supportedMethods: 'basic-card',
     data: {supportedNetworks: ['amex', 'diners'], supportedTypes: ['debit', 'credit']},
-  }, {
-    supportedMethods: 'bat',
   }];
 
   let details = {
