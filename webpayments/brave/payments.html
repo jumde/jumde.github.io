@@ -32,13 +32,12 @@ function onBuyClicked() {
   request.show().then(function(instrumentResponse) {
     console.log('Payment Requested');
     console.log(instrumentResponse);
-    response.complete('success')
+    instrumentResponse.complete('success')
       .then(function() {
-        done('This is a demo website. No payment will be processed.', response);
+        console.log('Success!!');
       })
       .catch(function(err) {
-        error(err);
-        request = buildPaymentRequest();
+        console.log(err);
       });
   })
   .catch(function(err) {
