@@ -1,9 +1,9 @@
-<meta http-equiv="origin-trial" content="AmhNRwkNWtVPXFvRjLVLmoeMN/9VbatnYhu+Cs7iFr7L/HJbXfD0Q+uDoSkQrmiJ9juwtEYcLkrtsnA8F8NwOAsAAAB5eyJvcmlnaW4iOiAiaHR0cHM6Ly9qdW1kZS5naXRodWIuaW86NDQzIiwgImlzU3ViZG9tYWluIjogdHJ1ZSwgImZlYXR1cmUiOiAiUlRDSW5zZXJ0YWJsZVN0cmVhbXMiLCAiZXhwaXJ5IjogMjUzNDAyMjk4OTY4fQ==" />
+<meta http-equiv="origin-trial" content="Am3OSHHVBHmy1cLehnpO7AKYiAJA8dU4I0E2p+v7i2OlCQh3VZE6ItZz5CrUX3rC8ueWR1E0z59CQqv8kYvy0w8AAAB3eyJvcmlnaW4iOiAiaHR0cHM6Ly9qdW1kZS5naXRodWIuaW86NDQzIiwgImlzU3ViZG9tYWluIjogdHJ1ZSwgImZlYXR1cmUiOiAiUlRDSW5zZXJ0YWJsZVN0cmVhbXMiLCAiZXhwaXJ5IjogMTU5NDc3NDI1N30=" />
 
 <p id="result"></p>
 <script>
-const supportsInsertableStreamsLegacy = RTCRtpSender.prototype.createEncodedVideoStreams;
-const supportsInsertableStreams = RTCRtpSender.prototype.createEncodedStreams;
+const supportsInsertableStreamsLegacy = !!RTCRtpSender.prototype.createEncodedVideoStreams;
+const supportsInsertableStreams = !!RTCRtpSender.prototype.createEncodedStreams;
 if (!(supportsInsertableStreams || supportsInsertableStreamsLegacy)) {
   document.getElementById("result").innerHTML = "Insertable streams are not supported";
 } else {
