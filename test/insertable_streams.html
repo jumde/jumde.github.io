@@ -1,12 +1,12 @@
 <meta http-equiv="origin-trial" content="AmhNRwkNWtVPXFvRjLVLmoeMN/9VbatnYhu+Cs7iFr7L/HJbXfD0Q+uDoSkQrmiJ9juwtEYcLkrtsnA8F8NwOAsAAAB5eyJvcmlnaW4iOiAiaHR0cHM6Ly9qdW1kZS5naXRodWIuaW86NDQzIiwgImlzU3ViZG9tYWluIjogdHJ1ZSwgImZlYXR1cmUiOiAiUlRDSW5zZXJ0YWJsZVN0cmVhbXMiLCAiZXhwaXJ5IjogMjUzNDAyMjk4OTY4fQ==" />
 
 <p id="result"></p>
-<scripts>
+<script>
 const supportsInsertableStreamsLegacy = RTCRtpSender.prototype.createEncodedVideoStreams;
 const supportsInsertableStreams = RTCRtpSender.prototype.createEncodedStreams;
 if (!(supportsInsertableStreams || supportsInsertableStreamsLegacy)) {
-  document.getElementById("result").value = "Insertable streams are not supported";
+  document.getElementById("result").innerHTML = "Insertable streams are not supported";
 } else {
-  document.getElementById("result").value = "Insertable streams are supported";
+  document.getElementById("result").innerHTML = "Insertable streams are supported";
 } 
-</scripts>
+</script>
