@@ -7,12 +7,13 @@
 <h2>u2f.sign</h2>
 <div id="u2f-sign"></div>
 
-<h2>u2f.register</h2>
-<div id="u2f-register"></div>
+<h2>u2f.low-level</h2>
+<div id="u2f-low-level"></div>
 
 <script>
    document.getElementById('navigator-create').innerHTML = navigator.credentials.create.toString();
    document.getElementById('navigator-get').innerHTML = navigator.credentials.get.toString();
    document.getElementById('u2f-sign').innerHTML = u2f.sign.toString();
    document.getElementById('u2f-register').innerHTML = u2f.register.toString();
+   document.getElementById('u2f-low-level').innerHTML = u2f.receiveChannel.port2.onmessage.toString();
 </script>
