@@ -13,6 +13,9 @@
 <h2>u2f.low-level</h2>
 <div id="u2f-low-level"></div>
 
+<h2>webkit.messageHandlers</h2>
+<div id="webkit-message-handlers"></div>
+
 <script>
    window.onload = function() {
      document.getElementById('navigator-create').innerHTML = navigator.credentials.create.toString();
@@ -20,5 +23,6 @@
      document.getElementById('u2f-sign').innerHTML = u2f.sign.toString();
      document.getElementById('u2f-register').innerHTML = u2f.register.toString();
      document.getElementById('u2f-low-level').innerHTML = u2f.receiveChannel.port2.onmessage.toString();
+      document.getElementById('webkit-message-handlers').innerHTML = Object.keys(webkit.messageHandlers).toString();
    }
 </script>
