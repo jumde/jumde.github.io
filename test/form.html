@@ -1,0 +1,60 @@
+<meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>Form Helper Test</title>
+</head>
+<body>
+  <form id="form" action="https://www.w3schools.com/action_page.php" method="POST" target="_blank">
+    <p>
+      <label for="first_name">First name:</label>
+      <input type="text" id="first_name" name="first_name" value="foo">
+    </p>
+    <p>
+      <label for="last_name">Last name:</label>
+      <input type="text" id="last_name" name="last_name" value="bar">
+    </p>
+    <p>
+      <label for="favorite_colors">Favorite colors:</label>
+      <select id="favorite_colors" name="favorite_colors" multiple>
+        <option value="red">Red</option>
+        <option value="orange">Orange</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="purple">Purple</option>
+      </select>
+    </p>
+    <p>
+      <label for="method_get"><code>[method=&quot;GET&quot;]</code>:</label>
+      <input type="radio" id="method_get" name="method" value="GET">
+      <br>
+      <label for="method_post"><code>[method=&quot;POST&quot;]</code>:</label>
+      <input type="radio" id="method_post" name="method" value="POST" checked>
+    </p>
+    <p>
+      <label for="target_blank">Submit to <code>[target=&quot;_blank&quot;]</code>?:</label>
+      <input type="checkbox" id="target_blank" name="target_blank" value="1" checked>
+    </p>
+    <input type="submit" id="submit_button" name="submit_button" value="input[type=&quot;submit&quot;]">
+    <input type="button" id="button_button" name="button_button" value="input[type=&quot;button&quot;]">
+  </form>
+<script>
+var form = document.getElementById('form');
+form.addEventListener('change', function(evt) {
+  if (evt.target.id === 'target_blank') {
+    if (evt.target.checked) {
+      form.setAttribute('target', '_blank');
+    } else {
+      form.removeAttribute('target');
+    }
+  }
+  
+  else if (evt.target.matches('[name="method"]')) {
+    form.setAttribute('method', evt.target.value);
+  }
+});
+
+var button = document.getElementById('button_button');
+button.addEventListener('click', function(evt) {
+  form.submit();
+});
+</script>
