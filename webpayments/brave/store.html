@@ -32,7 +32,7 @@ function onBuyClicked() {
   request.show().then(function(instrumentResponse) {
     console.log('Payment Requested');
     console.log(instrumentResponse);
-    document.getElementById("response").innerHTML = JSON.stringify(instrumentResponse);
+    document.getElementById("response").innerHTML = JSON.stringify(instrumentResponse, null, 4);
     instrumentResponse.complete("success");
   })
   .catch(function(err) {
@@ -45,6 +45,8 @@ function onBuyClicked() {
 <h2>Brave Store</h2>
 <img src="tshirt.jpg" width="150" height="150"></img><br><br>
 <button onclick="onBuyClicked()">Buy 55 BAT | 15 USD</button>
-<div>Response: </div>
-<div id="response"></div>
+<br><br>
+<div>Payment Response: </div>
+<br><br>
+div id="response"></div>
 </center>
