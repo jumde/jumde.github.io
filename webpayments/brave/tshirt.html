@@ -33,6 +33,7 @@ function onBuyClicked() {
     instrumentResponse.complete("success");
   })
   .catch(function(err) {
+    document.getElementById("response").innerHTML = err;
     console.log(err);
   });
 }
