@@ -1,29 +1,40 @@
 <script>
-  let supportedInstruments = [{
+let supportedInstruments = [{
     supportedMethods: 'bat',
-  }, {
+}, {
     supportedMethods: 'basic-card',
     data: {supportedNetworks: ['amex', 'diners'], supportedTypes: ['debit', 'credit']},
-  }];
+}];
 
-  let details = {
-    id: '305DEF20-3F33-4D10-B901-8AFF34EBA750',
-    total: {label: 'Total', amount: {currency: 'BAT', value: '0.25'}},
-    displayItems: [
-      {
-        label: 'Brave T-Shirt',
-        amount: {currency: 'BAT', value: '0.25'},
-        sku: 'AgEYd2VidGVzdC1wai5oZXJva3VhcHAuY29tAih3ZWJ0ZXN0LXBqLmhlcm9rdWFwcC5jb20gYnJhdmUtdHNoaXJ0IHYxAAIQc2t1PWJyYXZlLXRzaGlydAACCnByaWNlPTAuMjUAAgxjdXJyZW5jeT1CQVQAAgxkZXNjcmlwdGlvbj0AAhpjcmVkZW50aWFsX3R5cGU9c2luZ2xlLXVzZQAABiCcJ0zXGbSg+s3vsClkci44QQQTzWJb9UPyJASMVU11jw=='
-      },
-    ],
-  };
+let details = {
+  id: '305DEF20-3F33-4D10-B901-8AFF34EBA750',
+  total: {label: 'Total', amount: {currency: 'BAT', value: '0.25'}},
+  displayItems: [
+    {
+      label: 'Brave T-Shirt',
+      amount: {currency: 'BAT', value: '0.25'},
+      sku: 'AgEYd2VidGVzdC1wai5oZXJva3VhcHAuY29tAih3ZWJ0ZXN0LXBqLmhlcm9rdWFwcC5jb20gYnJhdmUtdHNoaXJ0IHYxAAIQc2t1PWJyYXZlLXRzaGlydAACCnByaWNlPTAuMjUAAgxjdXJyZW5jeT1CQVQAAgxkZXNjcmlwdGlvbj0AAhpjcmVkZW50aWFsX3R5cGU9c2luZ2xlLXVzZQAABiCcJ0zXGbSg+s3vsClkci44QQQTzWJb9UPyJASMVU11jw=='
+    },
+  ],
+};
 
   let request = new PaymentRequest(supportedInstruments, details);
+
+function load() {
   if (request.canMakePayment) {
-    console.log("Can Make Payment");
+    request.canMakePayment().then(function(result) {
+      if (result) {
+        document.getElementById("response").innerHTML = "Can Make Payment";
+      } else {
+        document.getElementById("response").innerHTML = "Cannot Make Payment";
+      }
+    }).catch(function(err) {
+      document.getElementById("response").innerHTML = "Cannot Make Payment";
+    });
   } else {
-    console.log("Cannot");
+    document.getElementById("response").innerHTML = "Cannot make payment";
   }
+}
  
 function onBuyClicked() {
   request.show().then(function(instrumentResponse) {
@@ -39,6 +50,7 @@ function onBuyClicked() {
 }
 </script>
 
+<body onload="load()">
 <center>
 <h2>Brave Store</h2>
 <img src="tshirt.jpg" width="150" height="150"></img><br><br>
@@ -48,3 +60,4 @@ function onBuyClicked() {
 <div>Payment Response: </div>
 <br><br>
 <pre id="response"></pre>
+</body>
